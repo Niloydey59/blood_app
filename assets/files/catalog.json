@@ -1,0 +1,35 @@
+{
+  "persons": [
+    {
+      "id": 1,
+      "name": "Niloy Dey",
+      "group": "A+",
+      "mobile": "01849989849",
+      "username": "Niloydey59",
+      "password": "Niloydey59",
+      "email": "Niloydev59@gmail.com",
+      "location": "Talaimari,Rajshahi"
+
+    },
+    {
+      "id": 2,
+      "name": "Rushnan Reaz",
+      "group": "A+",
+      "mobile": "01849989849",
+      "username": "Nikolai",
+      "password": "123456789",
+      "email": "rushnan456@gmail.com",
+      "location": "Talaimari,Rajshahi"
+    },
+    {
+      "id": 3,
+      "name": "Ibrahim Sarker",
+      "group": "A+",
+      "mobile": "01915119103",
+      "username": "raiyanasdf",
+      "password": "yametekudasai",
+      "email": "ibrahimsarkerraiyan@gmail.com",
+      "location": "Talaimari,Rajshahi"
+    }
+  ]
+}
