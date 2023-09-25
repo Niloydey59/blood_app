@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:blood_app/models/catalog.dart';
+import 'package:blood_app/widgets/feed_widgets/feed_header.dart';
 import 'package:blood_app/widgets/feed_widgets/feed_list.dart';
 import 'package:blood_app/widgets/list_widgets/donor_header.dart';
 import 'package:blood_app/widgets/list_widgets/donor_list.dart';
@@ -24,6 +25,11 @@ class _FeedListPageState extends State<FeedListPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+        /*appBar: AppBar(
+          backgroundColor: Vx.red600,
+          centerTitle: true,
+          //title: "Request Blood".text.xl3.justify.semiBold.make(),
+        ),*/
         body: SafeArea(
           child: Container(
             decoration: const BoxDecoration(
@@ -39,8 +45,8 @@ class _FeedListPageState extends State<FeedListPage> {
             padding: Vx.m32,
             child: Column(
               children: [
-                const DonorHeader(),
-                if(FirebaseFirestore.instance.collection("persons").get()!=null)
+                const FeedHeader(),
+                if(FirebaseFirestore.instance.collection("feeds").get()!=null)
                   const FeedList().py16().expand()
                 else
                   const Center(child: CircularProgressIndicator(),).centered().py16().expand(),

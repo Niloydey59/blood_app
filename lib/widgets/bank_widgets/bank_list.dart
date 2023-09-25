@@ -8,13 +8,13 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FeedList extends StatelessWidget {
-  const FeedList({Key? key}) : super(key: key);
+class BankList extends StatelessWidget {
+  const BankList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("feeds").snapshots(),
+        stream: FirebaseFirestore.instance.collection("blood_banks").snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
             return Center(
@@ -27,21 +27,20 @@ class FeedList extends StatelessWidget {
                 itemCount: snapshot.data!.docs.length,
                 itemBuilder: (context, index) {
                   DocumentSnapshot data = snapshot.data!.docs[index];
-                  final req = Feed(
-                      data["name"],
-                      data["group"],
-                      data["mobile"],
-                      data["location"],
-                    data["des"],
+                  final bank = Banks(
+                    data["name"],
+                    data["district"],
+                    data["address"],
+                    data["mobile"],
                   );
                   return InkWell(
-                      /*onTap: () =>
+                    /*onTap: () =>
                           Navigator.push(
                               context, MaterialPageRoute(
                               builder: (context) => DonorDetailsPage(donor: donor)
                           )
                           ),*/
-                      child: PersonRequest(req: req)
+                      child: Blood_Banks(bank: bank)
                   );
                 }
             );
@@ -50,61 +49,28 @@ class FeedList extends StatelessWidget {
     );
   }
 }
-class PersonRequest extends StatelessWidget {
+class Blood_Banks extends StatelessWidget {
   //const CatalogPerson({Key? key}) : super(key: key);
 
-  final Feed req;
+  final Banks bank;
 
-  const PersonRequest({super.key, required this.req}):
-        assert(req!=null);
+  const Blood_Banks({super.key, required this.bank}):
+        assert(bank!=null);
 
   @override
   Widget build(BuildContext context) {
     return VxBox(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment:MainAxisAlignment.spaceBetween,
-          children: [
-            "${req.name}".text.lg.color(MyTheme.darkBluishColor).bold.makeCentered(),
-
-            Container(
-              decoration: const BoxDecoration(
-                  gradient: RadialGradient(
-                      center: Alignment.center,
-                      radius: 3,
-                      colors: [
-                        Vx.red400,
-                        Vx.red800,
-                      ]
-                  ),
-              ),
-              child: Text("Request For",
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ).centered(),
-            ).backgroundColor(Colors.red).h4(context),
-
-            Expanded(child: Row(
+        child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                    color: Color.fromRGBO(136, 8, 8, 50),
-                    child: "${req.group}".text.bold.white.xl.makeCentered()
-                ).wh(30, 30).px16().py16().centered(),
-
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    10.heightBox,
-                    "Location: ${req.location}".text.bold.color(MyTheme.darkBluishColor).make().px4(),
-
-                    10.heightBox,
-                    "Amount: ${req.location}".text.bold.color(MyTheme.darkBluishColor).make().px4(),
-
-                    10.heightBox,
-                    "Mobile: ${req.mobile}".text.bold.color(MyTheme.darkBluishColor).make().px4(),
+                    "${bank.name}".text.bold.xl.make(),
+                    "District: ${bank.district}".text.make(),
+                    "Address: ${bank.address}".text.make(),
+                    "Mobile: ${bank.mobile}".text.make(),
                   ],
                 ),
                 ButtonBar(
@@ -113,7 +79,7 @@ class PersonRequest extends StatelessWidget {
                   children: [
                     ElevatedButton(
                         onPressed: () async{
-                          await FlutterPhoneDirectCaller.callNumber(req.mobile);
+                          await FlutterPhoneDirectCaller.callNumber(bank.mobile);
                         },
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
@@ -137,11 +103,7 @@ class PersonRequest extends StatelessWidget {
                   ],
                 )
               ],
-            )
             ),
-            "${req.des}".text.bold.color(MyTheme.darkBluishColor).make().px32(),
-          ],
-        )
     ).gray300.roundedLg.size(200, 170).make().py16();
   }
 }

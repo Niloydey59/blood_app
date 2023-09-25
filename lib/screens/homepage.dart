@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
                     HomeIcons(image: "assets/images/list.png", name: "Donor List", route: 'List',),
-                    HomeIcons(image: "assets/images/list.png", name: "Blood Banks", route: 'Banks',),
+                    HomeIcons(image: "assets/images/bank.png", name: "Blood Banks", route: 'Banks',),
                   ],
                 ).py16(), //Icons
               ]
@@ -67,6 +67,8 @@ class HomeIcons extends StatelessWidget {
             {Navigator.pushNamed(context, MyRoutes.DonorListRoute);}
           else if(route=='Feed')
           {Navigator.pushNamed(context, MyRoutes.FeedsRoute);}
+          else if(route=='Banks')
+          {Navigator.pushNamed(context, MyRoutes.BloodBanksRoute);}
         } ,
         child: AnimatedContainer(
           /*height: 120,*/

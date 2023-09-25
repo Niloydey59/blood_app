@@ -277,7 +277,7 @@ class _AccountCreateState extends State<AccountCreate> {
                         height: 40,
                       ),
 
-                      DropdownButton(
+                      DropdownButtonFormField(
                         dropdownColor: Colors.white,
                         hint: const Text("Chose a Blood Group"),
                         items: _groups.map((String value) {

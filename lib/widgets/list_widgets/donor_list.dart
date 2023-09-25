@@ -77,7 +77,7 @@ class CatalogPerson extends StatelessWidget {
             ),
           Expanded(child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               16.heightBox,
               "Name: ${donor.name}".text.lg.color(MyTheme.darkBluishColor).bold.make(),
@@ -114,7 +114,7 @@ class CatalogPerson extends StatelessWidget {
                 ],
               )
             ],
-          ).wh(150, 150)
+          )
           ),
           Container(
             color: Color.fromRGBO(136, 8, 8, 50),
@@ -122,7 +122,7 @@ class CatalogPerson extends StatelessWidget {
           ).wh(40, 40).px16()
         ],
       )
-    ).gray300.roundedLg.square(150).make().py16();
+    ).gray300.roundedLg.square(170).make().py16();
   }
 }
 

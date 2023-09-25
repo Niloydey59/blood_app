@@ -15,6 +15,16 @@ class Feed{
   Feed(this.name, this.group, this.mobile, this.location, this.des);
 }
 
+class Banks{
+  final String name;
+  final String district;
+  final String address;
+  final String mobile;
+
+  Banks(this.name, this.district, this.address, this.mobile);
+
+}
+
 class Person {
   final String name;
   final String group;

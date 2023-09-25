@@ -1,4 +1,5 @@
 import 'package:blood_app/screens/accountcreate.dart';
+import 'package:blood_app/screens/blood_banks.dart';
 import 'package:blood_app/screens/donor_list_page.dart';
 import 'package:blood_app/screens/feeds.dart';
 import 'package:blood_app/screens/homepage.dart';
@@ -22,7 +23,7 @@ class myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       theme: MyTheme.lightTheme(context),
       darkTheme: MyTheme.darkTheme(context),
       initialRoute: "/login",
@@ -34,6 +35,7 @@ class myapp extends StatelessWidget {
         MyRoutes.DonorListRoute:(context) => const DonorListPage(),
         MyRoutes.RequestBloodRoute:(context) => const ReqBlood(),
         MyRoutes.FeedsRoute:(context) => const FeedListPage(),
+        MyRoutes.BloodBanksRoute:(context) => const BloodBanks(),
       }
     );
   }

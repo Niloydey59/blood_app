@@ -182,7 +182,7 @@ class _ReqFormState extends State<ReqForm> {
                       40.heightBox,
 
                       Material(
-                        color: Colors.deepPurple,
+                        color: Vx.pink700,
                         child: InkWell(
                           onTap: ()=> createRequest(context),
 
@@ -192,7 +192,7 @@ class _ReqFormState extends State<ReqForm> {
                               height: 50,
                               alignment: Alignment.center,
                               child: const Text(
-                                "Create Account",
+                                "Submit Request",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
