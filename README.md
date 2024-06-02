@@ -13,10 +13,6 @@ The Blood Donor List App is a lifesaving platform that connects blood donors wit
 - **Contact Donors:** Users can directly call donors to request blood donations.
 - **Blood Requests:** Users can post requests for blood on a public feed, allowing donors to see and respond to urgent needs.
 
-## Screenshots
 
-*Include some screenshots here to showcase the app interface.*
-
-## Getting Started
 
 
